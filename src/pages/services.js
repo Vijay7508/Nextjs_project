@@ -21,13 +21,13 @@ const Services = () => {
   return (
     <section className="py-24 px-4 flex flex-col items-center">
       {/* Horizontal Scrollable Row */}
-      <div className="flex gap-6 overflow-x-auto whitespace-nowrap mb-8 max-w-full">
+      <div className="flex gap-6 overflow-x-auto overflow-hidden whitespace-nowrap mb-8 max-w-full">
         {services.map((service) => (
           <div
             key={service.id}
             onClick={() => setSelectedService(service.id)}
-            className={`flex flex-col items-center cursor-pointer transition-transform duration-300 hover:scale-105 ${
-              selectedService === service.id ? "text-pink-500" : "text-gray-800"
+            className={`flex flex-col items-center cursor-pointer  transition-transform duration-300 hover:scale-105 ${
+              selectedService === service.id ? "text-CustomChocolate" : "text-gray-800"
             }`}
           >
             {/* Circular Image */}
@@ -54,7 +54,7 @@ const Services = () => {
 
       {/* Selected Service Content */}
       <div className="mt-8 text-center">
-        <h2 className="text-2xl font-bold text-pink-500">
+        <h2 className="text-2xl font-bold text-CustomChocolate">
           {currentService?.name}
         </h2>
         <p className="mt-2 text-gray-600">{currentService?.content}</p>
