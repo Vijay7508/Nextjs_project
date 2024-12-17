@@ -15,7 +15,7 @@ const Filters = () => {
         <meta name="author" content="Elite Services Hub" />
       </Head>
 
-      <section className="text-white font-bold text-center mx-auto px-4 italic">
+      <section className="text-white font-bold text-center mx-auto px-4 mt-44 sm:mt-0 italic">
         <header>
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
             India's Leading Platform for{" "}

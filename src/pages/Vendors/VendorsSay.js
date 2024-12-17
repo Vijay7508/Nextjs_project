@@ -15,7 +15,7 @@ const VendorsSay = () => {
       </Head>
 
       <div className="bg-pink-50 py-10 px-5 italic">
-        <div className="max-w-6xl mx-auto text-center">
+        <div className="max-w-6xl  mx-auto text-center">
           {/* Heading */}
           <h2 className="text-2xl md:text-4xl font-bold text-gray-800 mb-4" aria-labelledby="vendors-testimonial">
             Our vendors have generated 100 Crore business last month!

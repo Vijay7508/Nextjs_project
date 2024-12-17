@@ -58,9 +58,9 @@ const About = () => {
                 />
                 <meta name="robots" content="index, follow" />
             </Head>
-    <section className="bg-gray-700 text-white py-32">
+    <section className="bg-gray-700 text-white md:py-32 py-20">
       {/* Container */}
-      <div className="max-w-7xl mx-auto px-6 text-center">
+      <div className="max-w-7xl mx-auto md:px-6 text-center">
         {/* Content */}
         <h1 className="text-3xl md:text-4xl pt-10 font-bold ">
           We are WeddingBazaar

@@ -15,7 +15,7 @@ const ContactVendors = () => {
       </Head>
 
       <div className="bg-pink-50 flex justify-center items-center min-h-fit">
-        <div className="max-w-4xl bg-pink-100 rounded-lg shadow-md p-8 text-center mt-20 mb-60 italic">
+        <div className="max-w-4xl bg-pink-100 rounded-lg shadow-md p-8 text-center mt-20 md:mb-60 italic">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4" aria-labelledby="title">
             Planning a wedding now made easy
           </h2>

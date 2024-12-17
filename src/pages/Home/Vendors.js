@@ -21,7 +21,7 @@ const Vendors = () => {
         <meta name="robots" content="index, follow" />
       </Head>
 
-      <div className="min-h-fit italic p-8">
+      <div className="min-h-fit italic p-8 mt-40 sm:mt-0">
         <h1 className="text-3xl font-bold text-center mb-8">Our Vendors</h1>
         <div className="flex flex-wrap justify-center gap-6">
           {vendors.map((vendor, index) => (
