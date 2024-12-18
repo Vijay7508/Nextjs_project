@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Services = () => {
+const Service = () => {
   const [selectedService, setSelectedService] = useState("photographer"); // Default service
 
   const services = [
@@ -63,4 +63,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default Service;

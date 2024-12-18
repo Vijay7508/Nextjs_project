@@ -1,13 +1,21 @@
 import React from "react";
-import Head from "next/head"; // Importing next/head for SEO
+import Head from "next/head"; 
+import { useRouter } from "next/router";
+
 
 const Vendors = () => {
+    const router = useRouter();
+  
   const vendors = [
     { name: "Photographers", description: "Capture your precious moments.", count: "2000+", image: "/Dark1.jpg" },
     { name: "Wallpaper Specialists", description: "Transform your walls with style.", count: "2000+", image: "/Dark2.jpg" },
     { name: "Carpenters", description: "Crafting furniture with perfection.", count: "2000+", image: "/Carepenter.jpg" },
     { name: "Caterers", description: "Delicious food for every occasion.", count: "2000+", image: "/Catering.jpg" },
   ];
+  const handleVendorClick = (vendorName) => {
+    const route = vendorName.toLowerCase().replace(/\s+/g, "");
+    router.push(`/${route}`);
+  };
 
   return (
     <div>
@@ -29,6 +37,8 @@ const Vendors = () => {
               key={index}
               className="bg-white shadow-md rounded-lg p-4 w-full sm:w-60 md:w-64 flex flex-col items-center text-center transform hover:scale-105 transition-transform duration-200"
               aria-labelledby={`vendor-${index}`}
+              onClick={() => handleVendorClick(vendor.name)} // Handle click to navigate
+
             >
               <img
                 src={vendor.image}

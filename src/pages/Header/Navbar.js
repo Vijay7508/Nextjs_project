@@ -55,7 +55,7 @@ const Navbar = () => {
               <Link href="/about" className="hover:text-black hover:bg-CustomWhite px-3 py-2 rounded-md text-sm">
                 About Us
               </Link>
-              <Link href="/services" className="hover:text-black hover:bg-CustomWhite px-3 py-2 rounded-md text-sm">
+              <Link href="/vendors_services" className="hover:text-black hover:bg-CustomWhite px-3 py-2 rounded-md text-sm">
                 Services
               </Link>
               <Link href="/menu" className="hover:text-black hover:bg-CustomWhite px-3 py-2 rounded-md text-sm">
@@ -116,7 +116,7 @@ const Navbar = () => {
           <Link href="/about" className="text-white hover:bg-CustomWhite px-3 py-2 rounded-md text-sm font-medium" onClick={() => setIsOpen(false)}>
             About Us
           </Link>
-          <Link href="/services" className="text-white hover:bg-CustomWhite px-3 py-2 rounded-md text-sm font-medium" onClick={() => setIsOpen(false)}>
+          <Link href="/vendors_services" className="text-white hover:bg-CustomWhite px-3 py-2 rounded-md text-sm font-medium" onClick={() => setIsOpen(false)}>
             Services
           </Link>
           <Link href="/menu" className="text-white hover:bg-CustomWhite px-3 py-2 rounded-md text-sm font-medium" onClick={() => setIsOpen(false)}>

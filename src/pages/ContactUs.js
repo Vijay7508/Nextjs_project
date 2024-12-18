@@ -106,7 +106,7 @@ const ContactUs = () => {
             Hire a vendor
           </a>
         </div>
-        {/* <Different /> */}
+        <Different />
       </div>
     </div>
   );

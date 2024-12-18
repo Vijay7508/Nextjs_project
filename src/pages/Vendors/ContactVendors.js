@@ -1,5 +1,7 @@
 import React from 'react';
-import Head from 'next/head'; // Importing next/head for SEO
+import Head from 'next/head'; 
+import Link from 'next/link';
+
 
 const ContactVendors = () => {
   return (
@@ -30,13 +32,13 @@ const ContactVendors = () => {
             >
               Explore vendors for your big day
             </a>
-            <a
-              href="#"
-              className="bg-pink-600 text-white font-medium py-2 px-4 rounded-lg shadow hover:bg-pink-700"
-              aria-label="Hire a vendor"
-            >
-              Hire a vendor
-            </a>
+            <Link
+  href="/vendors_services"
+  className="bg-pink-600 text-white font-medium py-2 px-4 rounded-lg shadow hover:bg-pink-700"
+  aria-label="Hire a vendor"
+>
+  Hire a vendor
+</Link>
           </div>
         </div>
       </div>
