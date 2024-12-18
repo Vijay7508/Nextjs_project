@@ -1,22 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import vendorList from "./VendorData"; // Import your vendor data
 
 const VendorsPage = () => {
   const router = useRouter();
   const { Vendors } = router.query; // Get the dynamic vendor name from the URL
-  const [vendorData, setVendorData] = useState(null);
+  const [vendorCategory, setVendorCategory] = useState(null);
 
   useEffect(() => {
     if (Vendors) {
-      setVendorData(Vendors.toLowerCase()); // Normalize case for matching
+      setVendorCategory(Vendors.toLowerCase()); // Normalize case for matching
     }
   }, [Vendors]);
 
-  if (!vendorData) {
+  if (!vendorCategory) {
     return <div className="text-center mt-20">Loading...</div>;
   }
 
-  // Content for each vendor
+  // Content for each vendor category
   const vendorDetails = {
     photographers: {
       title: "Best Photographers in Your City",
@@ -40,47 +41,77 @@ const VendorsPage = () => {
     },
   };
 
-  const currentVendor = vendorDetails[vendorData] || {
+  const currentVendor = vendorDetails[vendorCategory] || {
     title: "Vendor Not Found",
-    description: "We couldn’t find the vendor you’re looking for. Please check the URL and try again.",
+    description:
+      "We couldn’t find the vendor you’re looking for. Please check the URL and try again.",
   };
 
+  // Filter vendor data based on the category
+  const filteredVendors = vendorList.filter(
+    (vendor) => vendor.category === vendorCategory
+  );
+
   return (
-    <div className="mt-10 px-6 sm:px-12 lg:px-20">
-      {/* Breadcrumb */}
-      <div className="text-gray-500 text-sm mb-4">
-        <span
-          onClick={() => router.push("/")}
-          className="cursor-pointer hover:underline"
-        >
-          Home
-        </span>
-        <span className="mx-2">/</span>
-        <span className="text-pink-600 capitalize">{vendorData}</span>
+    <div className="min-h-screen bg-gradient-to-br from-gray-100 via-pink-100 to-pink-50 italic">
+      {/* White Content Area */}
+      <div className="w-full bg-white shadow-lg py-12 px-6 sm:px-12 lg:px-20">
+        {/* Breadcrumb */}
+        <div className="text-gray-500 text-sm mb-4">
+          <span
+            onClick={() => router.push("/")}
+            className="cursor-pointer hover:underline"
+          >
+            Home
+          </span>
+          <span className="mx-2">/</span>
+          <span className="text-pink-600 capitalize">{vendorCategory}</span>
+        </div>
+
+        {/* Title and Description */}
+        <div className="text-center">
+          <h1 className="text-3xl md:text-4xl font-extrabold mb-2 text-gray-800">
+            {currentVendor.title}{" "}
+            <span className="text-pink-600">(1000+)</span>
+          </h1>
+          <p className="text-gray-600 md:text-lg leading-relaxed mb-6">
+            {currentVendor.description}
+          </p>
+        </div>
       </div>
 
-      {/* Title and Description */}
-      <h1 className="text-3xl md:text-4xl font-bold mb-2 text-gray-800">
-        {currentVendor.title} <span className="text-pink-600">(1000+)</span>
-      </h1>
-      <p className="text-gray-600 md:text-lg leading-relaxed mb-6">
-        {currentVendor.description}
-      </p>
-
-      {/* Filters Section */}
-      <div className="flex flex-wrap gap-4 justify-start items-center">
-        <button className="flex items-center gap-1 bg-gray-100 px-4 py-2 rounded-full shadow-sm hover:bg-gray-200 transition">
-          Budget <span>&#x25BE;</span>
-        </button>
-        <button className="flex items-center gap-1 bg-gray-100 px-4 py-2 rounded-full shadow-sm hover:bg-gray-200 transition">
-          Ratings <span>&#x25BE;</span>
-        </button>
-        <button className="flex items-center bg-gray-100 px-4 py-2 rounded-full shadow-sm hover:bg-gray-200 transition">
-          Shortlisted
-        </button>
-        <button className="flex items-center gap-2 bg-pink-600 text-white px-4 py-2 rounded-full shadow hover:bg-pink-700 transition">
-          <span className="text-lg">&#x2699;</span> Filters
-        </button>
+      {/* Vendor Cards */}
+      <div className="py-12 px-6 sm:px-12 lg:px-20 flex justify-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-screen-lg">
+          {filteredVendors.map((vendor, index) => (
+            <div
+              key={index}
+              className="bg-white shadow-md rounded-md overflow-hidden hover:shadow-lg transition-shadow duration-300 w-full sm:w-72 lg:w-60"
+            >
+              {/* Vendor Image */}
+              <div className="relative w-full h-36">
+                <img
+                  src={vendor.image}
+                  alt={vendor.shopName}
+                  className="w-full h-full object-cover"
+                />
+                <span className="absolute bottom-2 right-2 bg-pink-600 text-white text-xs px-2 py-1 rounded">
+                  ⭐ {vendor.rating}
+                </span>
+              </div>
+              {/* Vendor Details */}
+              <div className="p-2 text-center">
+                <h3 className="text-sm font-semibold text-gray-800">
+                  {vendor.shopName}
+                </h3>
+                <p className="text-xs text-gray-500">{vendor.cityName}</p>
+                <p className="text-sm font-medium text-pink-600 mt-1">
+                  {vendor.price}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
